@@ -25,6 +25,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Películas',
       initialRoute: ListPage.ROUTE,
+      theme: ThemeData(
+          primaryColor: Color(0xFFD32F2F),
+          accentColor: Color(0xFFFF5722),
+          fontFamily: 'Roboto',
+          textTheme: TextTheme(
+              headline1: TextStyle(fontSize: 21.0, fontWeight: FontWeight.bold),
+              headline6: TextStyle(fontSize: 15.0, fontStyle: FontStyle.italic),
+              bodyText1: TextStyle(fontSize: 14.0),
+              bodyText2: TextStyle(
+                  fontStyle: FontStyle.italic, color: Colors.grey[600]))),
       routes: {
         ListPage.ROUTE: (_) => ListPage(),
         DetailPage.ROUTE: (_) => DetailPage(movie: MovieModel.empty())

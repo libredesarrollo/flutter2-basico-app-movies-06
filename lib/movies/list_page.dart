@@ -97,17 +97,32 @@ class _ListPageState extends State<ListPage> {
                   return Card(
                     elevation: 2.0,
                     child: ListTile(
-                      leading: CircleAvatar(
-                        backgroundImage: image,
+                      leading: Hero(
+                        tag:
+                            'poster_${this.movieResponseModel.movies[position].id}',
+                        child: CircleAvatar(
+                          backgroundImage: image,
+                        ),
                       ),
                       trailing: Icon(Icons.arrow_forward_ios_outlined),
-                      title:
-                          Text(this.movieResponseModel.movies[position].title),
+                      title: Hero(
+                          tag:
+                              'title_${this.movieResponseModel.movies[position].id}',
+                          child: Text(
+                              this.movieResponseModel.movies[position].title,
+                              style: Theme.of(context).textTheme.headline6,)),
                       subtitle: Align(
                         alignment: Alignment.centerRight,
-                        child: Text(
-                          this.movieResponseModel.movies[position].releaseDate,
-                          style: TextStyle(fontStyle: FontStyle.italic),
+                        child: Hero(
+                          tag:
+                              'date_${this.movieResponseModel.movies[position].id}',
+                          child: Text(
+                            this
+                                .movieResponseModel
+                                .movies[position]
+                                .releaseDate,
+                            style: Theme.of(context).textTheme.bodyText2,
+                          ),
                         ),
                       ),
                       onTap: () {
@@ -165,7 +180,7 @@ class _ListPageState extends State<ListPage> {
                         Navigator.push(
                             context,
                             CustomTransitionRoute(
-                              curve: Curves.easeInCubic,
+                                curve: Curves.easeInCubic,
                                 transtionType: TranstionType.slideRight,
                                 widget: DetailPage(
                                     movie: this

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:webdatos_06/helpers/custo_transition_route.dart';
 import 'package:webdatos_06/models/movie_response_model.dart';
 import 'package:webdatos_06/movies/detail_page.dart';
 
@@ -23,8 +24,18 @@ class HorizontalMovies extends StatelessWidget {
                 borderRadius: BorderRadius.circular(3),
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, DetailPage.ROUTE,
-                        arguments: this.movieResponseModel.movies[position]);
+                    // Navigator.pushNamed(context, DetailPage.ROUTE,
+                    //     arguments: this.movieResponseModel.movies[position]);
+
+                      Navigator.push(
+                            context,
+                            CustomTransitionRoute(
+                              curve: Curves.easeInCubic,
+                                transtionType: TranstionType.slideRight,
+                                widget: DetailPage(
+                                    movie: this
+                                        .movieResponseModel
+                                        .movies[position])));
                   },
                   child: Image.network(this
                       .movieResponseModel
