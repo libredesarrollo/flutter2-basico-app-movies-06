@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:webdatos_06/helpers/http_helper.dart';
+import 'package:webdatos_06/models/movie_model.dart';
 import 'package:webdatos_06/models/movie_response_model.dart';
 import 'package:webdatos_06/movies/detail_page.dart';
 import 'package:webdatos_06/movies/list_page.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       initialRoute: ListPage.ROUTE,
       routes: {
         ListPage.ROUTE: (_) => ListPage(),
-        DetailPage.ROUTE: (_) => DetailPage()
+        DetailPage.ROUTE: (_) => DetailPage(movie: MovieModel.empty())
       },
     );
   }

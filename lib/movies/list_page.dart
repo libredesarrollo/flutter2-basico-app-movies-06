@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:webdatos_06/helpers/custo_transition_route.dart';
 import 'package:webdatos_06/helpers/http_helper.dart';
 import 'package:webdatos_06/models/movie_response_model.dart';
 import 'package:webdatos_06/movies/detail_page.dart';
@@ -110,9 +111,66 @@ class _ListPageState extends State<ListPage> {
                         ),
                       ),
                       onTap: () {
-                        Navigator.pushNamed(context, DetailPage.ROUTE,
-                            arguments:
-                                this.movieResponseModel.movies[position]);
+                        // Navigator.pushNamed(context, DetailPage.ROUTE,
+                        //     arguments:
+                        //         this.movieResponseModel.movies[position]);
+
+                        // *** Navegacion por defecto
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(builder: (_) {
+                        //     return DetailPage(
+                        //       movie: this.movieResponseModel.movies[position],
+                        //     );
+                        //   }),
+                        // );
+
+                        // *** navegacion con transiciones
+                        // Navigator.push(
+                        //   context,
+                        //   PageRouteBuilder(
+                        //     pageBuilder: (_, Animation<double> animation,
+                        //         Animation<double> animationSecondary) {
+                        //       return DetailPage(
+                        //         movie: this.movieResponseModel.movies[position],
+                        //       );
+                        //     },
+                        //     transitionsBuilder: (_,
+                        //         Animation<double> animation,
+                        //         Animation<double> animationSecondary,
+                        //         Widget child) {
+                        //       // return Align(
+                        //       //   alignment: Alignment.topRight,
+                        //       //   child: SizeTransition(
+                        //       //     sizeFactor: animation, child: child)
+                        //       // );
+
+                        //       // return FadeTransition(
+                        //       //     opacity: animation, child: child);
+                        //       return ScaleTransition(scale:animation,
+                        //           child: child);
+                        //     },
+                        //     transitionDuration: Duration(milliseconds: 500),
+                        //     reverseTransitionDuration:
+                        //         Duration(milliseconds: 500),
+                        //   ),
+                        // );
+
+                        // Navigator.push(
+                        //     context,
+                        //     CustomSizeTransitionRoute(DetailPage(
+                        //       movie: this.movieResponseModel.movies[position],
+                        //     ),500));
+
+                        Navigator.push(
+                            context,
+                            CustomTransitionRoute(
+                              curve: Curves.easeInCubic,
+                                transtionType: TranstionType.slideRight,
+                                widget: DetailPage(
+                                    movie: this
+                                        .movieResponseModel
+                                        .movies[position])));
                       },
                     ),
                   );

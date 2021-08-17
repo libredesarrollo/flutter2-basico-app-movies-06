@@ -33,6 +33,19 @@ class MovieModel {
     return HttpHelper.baseUrlImage + this.posterPath;
   }
 
+  MovieModel.empty():
+    this.id = 0,
+    this.backdropPath = "",
+    this.originalLanguage = "",
+    this.originalTitle = "",
+    this.overview = "",
+    this.popularity = 0,
+    this.posterPath = "",
+    this.releaseDate = "",
+    this.title = "",
+    this.voteAverage = 0,
+    this.voteCount = 0;
+
   MovieModel.fromJson(Map<String, dynamic> movieMap):
     this.id = movieMap['id'],
     this.backdropPath = movieMap['backdrop_path'],
