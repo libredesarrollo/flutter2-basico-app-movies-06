@@ -110,7 +110,7 @@ class _ListPageState extends State<ListPage> {
                               'title_${this.movieResponseModel.movies[position].id}',
                           child: Text(
                               this.movieResponseModel.movies[position].title,
-                              style: Theme.of(context).textTheme.headline6,)),
+                              style: Theme.of(context).textTheme.titleLarge,)),
                       subtitle: Align(
                         alignment: Alignment.centerRight,
                         child: Hero(
@@ -121,7 +121,7 @@ class _ListPageState extends State<ListPage> {
                                 .movieResponseModel
                                 .movies[position]
                                 .releaseDate,
-                            style: Theme.of(context).textTheme.bodyText2,
+                            style: Theme.of(context).textTheme.bodyMedium,
                           ),
                         ),
                       ),

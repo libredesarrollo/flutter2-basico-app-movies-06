@@ -51,7 +51,7 @@ class DetailPage extends StatelessWidget {
                           padding: const EdgeInsets.only(bottom: 20, left: 10),
                           child: Text(
                             movie.title,
-                            style: Theme.of(context).textTheme.headline1,
+                            style: Theme.of(context).textTheme.displayLarge,
                           ),
                         )),
                     Row(
@@ -95,7 +95,7 @@ class DetailPage extends StatelessWidget {
                           tag: 'date_${movie.id}',
                           child: Text(
                             movie.releaseDate,
-                            style: Theme.of(context).textTheme.bodyText2,
+                            style: Theme.of(context).textTheme.bodyMedium,
                           ),
                         )
                       ],

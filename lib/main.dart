@@ -26,14 +26,16 @@ class MyApp extends StatelessWidget {
       title: 'Películas',
       initialRoute: ListPage.ROUTE,
       theme: ThemeData(
-          primaryColor: Color(0xFFD32F2F),
-          accentColor: Color(0xFFFF5722),
+          colorScheme: ColorScheme.fromSwatch().copyWith(
+            primary: Color(0xFFD32F2F),
+            secondary: Color(0xFFFF5722),
+          ),
           fontFamily: 'Roboto',
           textTheme: TextTheme(
-              headline1: TextStyle(fontSize: 21.0, fontWeight: FontWeight.bold),
-              headline6: TextStyle(fontSize: 15.0, fontStyle: FontStyle.italic),
-              bodyText1: TextStyle(fontSize: 14.0),
-              bodyText2: TextStyle(
+              displayLarge: TextStyle(fontSize: 21.0, fontWeight: FontWeight.bold),
+              titleLarge: TextStyle(fontSize: 15.0, fontStyle: FontStyle.italic),
+              bodyLarge: TextStyle(fontSize: 14.0),
+              bodyMedium: TextStyle(
                   fontStyle: FontStyle.italic, color: Colors.grey[600]))),
       routes: {
         ListPage.ROUTE: (_) => ListPage(),
